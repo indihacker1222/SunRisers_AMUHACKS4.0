@@ -4,7 +4,7 @@
 
 Here is a preview of the project's front page:
 
-![Project Front Page](client/src/assets/fixedYieldProtocolFrontpage.png)
+![Project Front Page](client/src/assets/fixedYieldProtocolfrontimage.png)
 
 ---
 
