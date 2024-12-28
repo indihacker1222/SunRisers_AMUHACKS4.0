@@ -30,6 +30,7 @@ const App = () => {
     depositorAddress: "",
   });
   const [depositDetails, setDepositDetails] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   const { writeContractAsync, isPending } = useWriteContract();
   const { address } = useAccount();
@@ -121,7 +122,7 @@ const App = () => {
       } else {
         // Handle unexpected errors
         console.error(error);
-        toast.error(`Deposit failed: ${error.message || error}`);
+        toast.error("Deposit failed: An unexpected error occurred.");
       }
     }
   };
@@ -157,11 +158,11 @@ const App = () => {
       } else if (error.message.includes("Principal transfer failed")) {
         toast.error("Principal transfer failed.");
       } else if (error.message.includes("revert")) {
-        toast.error(`Transaction failed: Contract reverted. ${error.message}`);
+        toast.error("Transaction failed: Contract reverted.");
       } else {
         // Handle unexpected errors
         console.error(error);
-        toast.error(`Withdraw Principal failed: ${error.message || error}`);
+        toast.error("Withdraw Principal failed: An unexpected error occurred.");
       }
     }
   };
@@ -205,7 +206,7 @@ const App = () => {
       } else if (error.message.includes("Yield transfer failed")) {
         toast.error("Yield transfer failed. Please try again.");
       } else if (error.message.includes("revert")) {
-        toast.error(`Transaction failed: Contract reverted. ${error.message}`);
+        toast.error("Transaction failed: Contract reverted.");
       } else if (error.message.includes("out of gas")) {
         toast.error(
           "Transaction failed: Out of gas. Please increase the gas limit."
@@ -213,7 +214,7 @@ const App = () => {
       } else {
         // Log and display unexpected errors
         console.error(error);
-        toast.error(`Claim yield failed: ${error.message || error}`);
+        toast.error("Claim yield failed: An unexpected error occurred.");
       }
     }
   };
@@ -288,7 +289,7 @@ const App = () => {
       } else {
         // Handle unexpected errors
         console.error(error);
-        toast.error(`Sell transaction failed: ${error.message || error}`);
+        toast.error("Sell transaction failed: An unexpected error occurred.");
       }
     }
   };
@@ -317,20 +318,17 @@ const App = () => {
       } else if (error.message.includes("No deposit found")) {
         toast.error("No deposit found to cancel.");
       } else if (error.message.includes("Deposit has already matured")) {
-        toast.error("Cannot cancel deposit: Deposit has already matured.");
+        toast.error("Cannot cancel deposit: It has already matured.");
       } else if (
         error.message.includes(
           "Cannot cancel deposit after selling yield tokens"
         )
       ) {
-        toast.error(
-          "Cannot cancel deposit after selling yield tokens. Ensure you have not sold your yield tokens."
-        );
+        toast.error("Cannot cancel deposit: Yield tokens have been sold.");
       } else if (error.message.includes("Refund transfer failed")) {
         toast.error("Refund transfer failed. Please try again.");
       } else {
-        console.error(error);
-        toast.error(`Cancel deposit failed: ${error.message || error}`);
+        toast.error("Cancel deposit failed: An unexpected error occurred.");
       }
     }
   };
@@ -370,31 +368,69 @@ const App = () => {
       // Convert the input amount to Wei (smallest unit for tokens)
       const approveAmount = ethers.utils.parseEther("10000");
 
-      const transaction = await writeContractAsync({
+      const transaction1 = await writeContractAsync({
         address: YIELDTOKENADDRESS,
         abi: YIELDTOKENABI,
         functionName: "approve",
         args: [FIXEDYIELDPRTOCOLADDRESS, approveAmount],
       });
 
-      if (transaction) {
-        toast.success("Tokens approved successfully!");
-        console.log("Transaction submitted:", transaction);
+      const transaction2 = await writeContractAsync({
+        address: PRINCIPLETOKENADDRESS,
+        abi: PRINCIPLETOKENABI,
+        functionName: "approve",
+        args: [FIXEDYIELDPRTOCOLADDRESS, approveAmount],
+      });
+
+      if (transaction1) {
+        toast.success("Yield Tokens approved successfully!");
+        console.log("Transaction submitted:", transaction1);
       } else {
-        toast.error("Tokens approving failed!");
+        toast.error("Yeild Tokens approving failed!");
+      }
+
+      if (transaction2) {
+        toast.success("Principle Tokens approved successfully!");
+        console.log("Transaction submitted:", transaction2);
+      } else {
+        toast.error("Principle Tokens approving failed!");
       }
     } catch (error) {
       // Handle errors
       if (error.code === "USER_REJECTED") {
-        toast.warning("Approval cancelled by user.");
+        toast.error("Approval failed: User rejected the request.");
       } else if (error.code === "INSUFFICIENT_FUNDS") {
         toast.error("Transaction failed: Insufficient funds for gas.");
       } else {
-        console.error(error);
-        toast.error(`Approval failed: ${error.message || error}`);
+        toast.error("Approval failed: An unexpected error occurred.");
       }
     }
   };
+
+  // Handle modal visibility toggle
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  // Modal content explaining the project
+  const renderModal = () => (
+    <div className="modal">
+      <div className="modal-content">
+        <h2>About Fixed Yield Protocol</h2>
+        <p>
+          The Fixed Yield Protocol is a decentralized platform that allows users
+          to deposit their tokens and earn fixed yields over a predefined
+          maturity period. Users can claim their yields or withdraw their
+          principal once the deposit has matured.
+        </p>
+        <p>
+          The protocol offers a transparent and secure method for users to
+          generate passive income from their cryptocurrency holdings.
+        </p>
+        <button onClick={toggleModal}>Close</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="app">
@@ -410,6 +446,9 @@ const App = () => {
         </div>
         <div className="headerButtons">
           <div className="approve">
+            <button onClick={toggleModal}>Documentation</button>
+          </div>
+          <div className="approve">
             <button onClick={() => approveTokens()}>Approve</button>
           </div>
           <div className="rainbowwallet">
@@ -418,6 +457,9 @@ const App = () => {
           </div>
         </div>
       </header>
+
+      {/* Modal for Documentation */}
+      {showModal && renderModal()}
 
       <main className="main">
         <div className="card">
