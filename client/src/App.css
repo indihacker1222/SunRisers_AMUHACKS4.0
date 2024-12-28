@@ -1,0 +1,224 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a73e8, #9be7ff);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.header {
+  background: #0c47a1;
+  width: 100%;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.wallet {
+  background: #1e88e5;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.wallet:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.rainbowwallet {
+  margin-right: 30px;
+}
+
+.main {
+  margin-top: 120px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 120px auto 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #e3f2fd;
+}
+
+.card input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+.card input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card button {
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e88e5, #42a5f5);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card button:active {
+  transform: scale(0.95);
+}
+
+.approve button {
+  margin-right: 10px;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e88e5, #42a5f5);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.approve button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.approve button:active {
+  transform: scale(0.95);
+}
+
+.footer {
+  background: #0c47a1;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e3f2fd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px; /* Adjust the size of the logo */
+  height: auto;
+  margin-right: 10px; /* Space between the logo and the text */
+}
+
+.headerButtons {
+  display: flex;
+  align-items: center;
+}
+
+/* Animations */
+@keyframes buttonClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .wallet {
+    font-size: 0.9rem;
+  }
+
+  .card h2 {
+    font-size: 1.6rem;
+  }
+
+  .card button {
+    font-size: 1rem;
+  }
+}
