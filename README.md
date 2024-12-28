@@ -1,4 +1,3 @@
-```
 # Fixed Yield Protocol
 
 ## Project Front Page
@@ -162,5 +161,4 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 - **GitHub Repository:** [Fixed Yield Protocol](https://github.com/Anish99594/FixedYieldProtocol.git)
 - **Demo Video:** [Watch Here](https://your-demo-video-link)
 - **Project Website:** [Visit Here](https://fixed-yield-protocol.vercel.app/)
-```
 
