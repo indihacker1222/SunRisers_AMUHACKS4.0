@@ -1,4 +1,4 @@
-# Fixed Yield Protocol
+# YieldX
 
 ## Project Front Page
 
@@ -10,7 +10,7 @@ Here is a preview of the project's front page:
 
 ## Introduction
 
-Fixed Yield Protocol is a decentralized finance (DeFi) smart contract enabling users to tokenize and trade future yield. This innovative protocol separates asset ownership from its yield, allowing users to secure fixed-rate income or speculate on future yield. With a fixed 60-day maturity period, users can seamlessly trade tokenized yield while benefiting from a transparent and secure system.
+YieldX is a decentralized finance (DeFi) smart contract enabling users to tokenize and trade future yield. This innovative protocol separates asset ownership from its yield, allowing users to secure fixed-rate income or speculate on future yield. With a fixed 60-day maturity period, users can seamlessly trade tokenized yield while benefiting from a transparent and secure system.
 
 ---
 
@@ -158,7 +158,7 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 
 ## Links
 
-- **GitHub Repository:** [Fixed Yield Protocol](https://github.com/Anish99594/FixedYieldProtocol.git)
+- **GitHub Repository:** [YieldX](https://github.com/Anish99594/FixedYieldProtocol.git)
 - **Demo Video:** [Watch Here](https://your-demo-video-link)
 - **Project Website:** [Visit Here](https://fixed-yield-protocol.vercel.app/)
 
