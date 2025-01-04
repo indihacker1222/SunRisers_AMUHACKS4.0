@@ -442,7 +442,7 @@ const App = () => {
             className="logo"
             style={{ borderRadius: "50px" }}
           />
-          <h1>Fixed Yield Protocol</h1>
+          <h1>YieldX</h1>
         </div>
         <div className="headerButtons">
           <div className="approve">
