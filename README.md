@@ -28,7 +28,7 @@ Fixed Yield Protocol is a decentralized finance (DeFi) smart contract enabling u
   - After the 60-day maturity, users can withdraw their principal in native tokens.
 
 - **Yield Claims:**
-  - Yield Tokens can be redeemed for corresponding ETH yield after maturity.
+  - Yield Tokens can be redeemed for corresponding EDU yield after maturity.
 
 - **Yield Token Trading:**
   - Users can sell their Yield Tokens to other users, enabling yield speculation.
@@ -56,7 +56,7 @@ Fixed Yield Protocol is a decentralized finance (DeFi) smart contract enabling u
 - Users must burn their Principal Tokens (PT) to claim the native tokens.
 
 ### Yield Claims
-- Yield Tokens (YT) can be redeemed for ETH yield after maturity.
+- Yield Tokens (YT) can be redeemed for EDU yield after maturity.
 - Yield is calculated based on a **10% interest rate** on the principal amount.
 
 ### Yield Token Trading
@@ -84,7 +84,7 @@ Fixed Yield Protocol is a decentralized finance (DeFi) smart contract enabling u
 ### User Functions
 - `deposit()`: Deposit native tokens to receive PT and YT.
 - `withdrawPrincipal()`: Withdraw the principal after the 60-day maturity period.
-- `claimYield(address depositorAddress)`: Claim ETH yield using Yield Tokens (YT).
+- `claimYield(address depositorAddress)`: Claim EDU yield using Yield Tokens (YT).
 - `sellYieldToken(address buyer, uint256 yieldAmount)`: Sell Yield Tokens to another user.
 - `cancelDeposit()`: Cancel the deposit and reclaim the principal before maturity.
 
@@ -113,7 +113,7 @@ Fixed Yield Protocol is a decentralized finance (DeFi) smart contract enabling u
 
 ### Claim Yield
 1. Ensure maturity period has passed.
-2. Call `claimYield()` using your Yield Tokens (YT) to receive ETH yield.
+2. Call `claimYield()` using your Yield Tokens (YT) to receive EDU yield.
 
 ### Trade Yield Tokens
 1. Call `sellYieldToken(buyer, yieldAmount)` to sell Yield Tokens.
