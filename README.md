@@ -158,7 +158,7 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 
 ## Links
 
-- **GitHub Repository:** [YieldX](https://github.com/indihacker1222/YieldX.git)
+- **GitHub Repository:** [YieldX](https://github.com/indihacker1222/SunRisers_AMUHACKS4.0.git)
 - **Demo Video:** [Watch Here](https://youtu.be/-vJd-FKzfIY)
 - **Project Website:** [Visit Here](https://fixed-yield-protocol.vercel.app/)
 
