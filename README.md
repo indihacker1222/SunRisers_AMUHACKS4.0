@@ -159,6 +159,6 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 ## Links
 
 - **GitHub Repository:** [YieldX](https://github.com/Anish99594/FixedYieldProtocol.git)
-- **Demo Video:** [Watch Here](client/src/assets/YieldX.mp4)
+- **Demo Video:** [Watch Here](https://youtu.be/-vJd-FKzfIY)
 - **Project Website:** [Visit Here](https://fixed-yield-protocol.vercel.app/)
 
